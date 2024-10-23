@@ -8,9 +8,7 @@
         <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
-	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,12 +19,12 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Librari Stylesheet -->
+        <!-- Libraries Stylesheet -->
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
 
-        <!-- Kustomisasi Bootstrap Stylesheet -->
+        <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
@@ -121,7 +119,7 @@
 
                     <!-- Pengalaman Start -->
                     <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Experience</h1>
+                        <h1 class="title pb-3 mb-5">Expericence</h1>
                         <div class="border-start border-2 border-light pt-2 ps-5">
                             <div class="position-relative mb-4">
                                 <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
@@ -151,41 +149,42 @@
                     <!-- Pengalaman End -->
 
                     <!-- Kontak Start -->
-                   <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-			   <h1 class="title pb-3 mb-5">Hubungi Saya</h1>
-			   <p class="mb-4">Apakah Anda ingin menghabiskan waktu dengan saya? Saya ingin mendengar dari Anda! Silakan hubungi saya di salah satu tautan di bawah ini, dan saya akan membalas Anda secepat mungkin.</p>
-			   <form onsubmit="kirimEmail(); return false;">
-			   <div class="row g-3">
-					<div class="col-md-6">
-					<div class="form-floating">
-                    			<input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Nama Anda" required>
-                    			<label for="name">Nama Anda</label>
-                			</div>
-            		</div>
-            <div class="col-md-6">
-                <div class="form-floating">
-                    <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Email Anda" required>
-                    <label for="email">Email Anda</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subjek" required>
-                    <label for="subject">Subjek</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control border-0 bg-secondary" placeholder="Tinggalkan pesan di sini" id="message" style="height: 200px" required></textarea>
-                    <label for="message">Pesan</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pesan</button>
-            </div>
-        </div>
-    </form>
-</section>
+                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
+                        <h1 class="title pb-3 mb-5">Contact Me</h1>
+                        <p class="mb-4">Looking to spend some time with me? I’d love to hear from you! Feel free to contact me at any of the links below, and I’ll get back to you as soon as possible.</p>
+                        <form id="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject" required>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px" required></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="message-response"></div>
+                    </section>
                     <!-- Kontak End -->
 
                     <!-- Footer Start -->
@@ -207,20 +206,37 @@
         
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
-	    
+        
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
         <script>
-	function kirimEmail() {
-    	const nama = document.getElementById('name').value;
-    	const email = document.getElementById('email').value;
-    	const subjek = document.getElementById('subject').value;
-    	const pesan = document.getElementById('message').value;
+        (function(){
+        emailjs.init("service_dg8t2zr"); // Replace with your User ID
+        })();
 
-    	const mailtoLink = `mailto:taofikhidayat10@gmail.com?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(`Nama: ${nama}\nEmail: ${email}\n\n${pesan}`)}`;
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
 
-    	window.location.href = mailtoLink;
-	}
-	</script>
-	    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        emailjs.send("service_dg8t2zr", "template_riunktn", {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        }).then(function(response) {
+            document.getElementById('message-response').innerHTML = "<p>Your message has been sent!</p>";
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById("contact-form").reset(); // Reset form after sending
+        }, function(error) {
+            document.getElementById('message-response').innerHTML = "<p>There was an error. Please try again.</p>";
+            console.log('FAILED...', error);
+        });
+    });
+</script>
+
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
