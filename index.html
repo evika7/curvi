@@ -151,41 +151,41 @@
                     <!-- Pengalaman End -->
 
                     <!-- Kontak Start -->
-                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-                        <h1 class="title pb-3 mb-5">Contact Me</h1>
-			<p class="mb-4">Looking to spend some time at me? I’d love to hear from you! Feel free to contact me at any of the links below, and I’ll get back to you as soon as possible.</a></p>
-                        <form action="php/mail.php" method="POST">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" name="name" placeholder="Your Name" required>
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" name="email" placeholder="Your Email" required>
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" name="subject" placeholder="Subject" required>
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" name="message" style="height: 200px" required></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
+                   <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
+			   <h1 class="title pb-3 mb-5">Hubungi Saya</h1>
+			   <p class="mb-4">Apakah Anda ingin menghabiskan waktu dengan saya? Saya ingin mendengar dari Anda! Silakan hubungi saya di salah satu tautan di bawah ini, dan saya akan membalas Anda secepat mungkin.</p>
+			   <form onsubmit="kirimEmail(); return false;">
+			   <div class="row g-3">
+					<div class="col-md-6">
+					<div class="form-floating">
+                    			<input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Nama Anda" required>
+                    			<label for="name">Nama Anda</label>
+                			</div>
+            		</div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Email Anda" required>
+                    <label for="email">Email Anda</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subjek" required>
+                    <label for="subject">Subjek</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control border-0 bg-secondary" placeholder="Tinggalkan pesan di sini" id="message" style="height: 200px" required></textarea>
+                    <label for="message">Pesan</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pesan</button>
+            </div>
+        </div>
+    </form>
+</section>
                     <!-- Kontak End -->
 
                     <!-- Footer Start -->
@@ -207,7 +207,19 @@
         
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
-        
+        <script>
+	function kirimEmail() {
+    	const nama = document.getElementById('name').value;
+    	const email = document.getElementById('email').value;
+    	const subjek = document.getElementById('subject').value;
+    	const pesan = document.getElementById('message').value;
+
+    	const mailtoLink = `mailto:taofikhidayat10@gmail.com?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(`Nama: ${nama}\nEmail: ${email}\n\n${pesan}`)}`;
+
+    	window.location.href = mailtoLink;
+	}
+	</script>
+	    
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
