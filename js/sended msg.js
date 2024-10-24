@@ -11,9 +11,9 @@ contactForm.addEventListener("submit", function (e) {
         body: formData,
         mode: "no-cors",
     })
-    .then(()=>{
+    .then(() => {
         // url thanks
-        window.location.href = "/thanks.html";
+        window.location.href = "thanks.html";
     })
     .catch((e) => alert("Error occured"));
-})
+});
