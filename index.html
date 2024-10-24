@@ -151,30 +151,30 @@
                     <!-- Kontak Start -->
                     <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
                         <h1 class="title pb-3 mb-5">Contact Me</h1>
-                        <p class="mb-4">Looking to spend some time with me? I’d love to hear from you! Feel free to contact me at any of the links below, and I’ll get back to you as soon as possible.</p>
-                        <form id="contact-form">
+						<p class="mb-4">Looking to spend some time at me? I’d love to hear from you! Feel free to contact me at any of the links below, and I’ll get back to you as soon as possible.</a></p>
+                        <form action="https://formspree.io/f/xbljlqow" method="POST">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name" required>
+                                        <input type="text" class="form-control border-0 bg-secondary" id="name" name="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email" required>
+                                        <input type="email" class="form-control border-0 bg-secondary" id="email" name="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject" required>
+                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" name="subject" placeholder="Subject" required>
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px" required></textarea>
+                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" name="message" style="height: 200px" required></textarea>
                                         <label for="message">Message</label>
                                     </div>
                                 </div>
@@ -183,7 +183,6 @@
                                 </div>
                             </div>
                         </form>
-                        <div id="message-response"></div>
                     </section>
                     <!-- Kontak End -->
 
@@ -207,36 +206,6 @@
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
         
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script>
-        (function(){
-        emailjs.init("service_dg8t2zr"); // Replace with your User ID
-        })();
-
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        emailjs.send("service_dg8t2zr", "template_ed9nos5", {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
-        }).then(function(response) {
-            document.getElementById('message-response').innerHTML = "<p>Your message has been sent!</p>";
-            console.log('SUCCESS!', response.status, response.text);
-            document.getElementById("contact-form").reset(); // Reset form after sending
-        }, function(error) {
-            document.getElementById('message-response').innerHTML = "<p>There was an error. Please try again.</p>";
-            console.log('FAILED...', error);
-        });
-        });
-        </script>
-
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -248,6 +217,7 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/isotope/isotope.pkgd.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="js/sended msg.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -255,5 +225,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
     </body>
 </html>
